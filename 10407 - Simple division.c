@@ -1,0 +1,40 @@
+#include<stdio.h>
+int main()
+{
+    int a,k,min,b,ara[1000],i,j,count,d,flag;
+    while(scanf("%d",&a)!=EOF){
+        if(a==0)
+            break;
+            ara[0]=a;
+            k=2;
+            scanf("%d",&b);
+            ara[1]=b;
+        while(b!=0){
+            scanf("%d",&b);
+            ara[k]=b;
+            k++;
+        }
+        min=a;
+        for(i=0;i<k-1;i++){
+            if(ara[i]<min)
+                min=ara[i];
+        }
+        for(i=2;i<=min/2;i++){
+                flag=0;
+        count=0;
+            for(j=0;j<k-2;j++){
+                if(ara[j]%i==ara[j+1]%i)
+                    count++;
+            }
+            if(count==k-2){
+                d=i;
+                flag=1;
+                break;
+            }
+        }
+        if(flag==1)
+            printf("%d\n",d);
+        else
+            printf("1\n");
+    }
+}
